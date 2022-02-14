@@ -1,4 +1,4 @@
-module github.com/JoeyFrancisTribbiani/minerpserver
+module github.com/JoeyFrancisTribbiani/server
 go 1.16
 
 require (

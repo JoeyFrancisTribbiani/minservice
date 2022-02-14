@@ -16,8 +16,8 @@ import (
 	"net/http/httputil"
 	"strconv"
 
-	"github.com/JoeyFrancisTribbiani/minerpserver/model/autocode"
 	"github.com/JoeyFrancisTribbiani/selling-partner-api-sdk/listings"
+	"github.com/JoeyFrancisTribbiani/server/model/autocode"
 	"github.com/pkg/errors"
 )
 
