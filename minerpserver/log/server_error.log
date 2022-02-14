@@ -1,3 +1,4 @@
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/01 - 23:52:13.468	[31merror[0m	/Users/minmin/Documents/minservice/server/core/server.go:48	net.Listen error: listen tcp :8888: bind: address already in use
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/01 - 23:53:03.745	[31merror[0m	/Users/minmin/Documents/minservice/server/core/server.go:48	accept tcp [::]:8888: use of closed network connection
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/11 - 16:50:23.631	[31merror[0m	/Users/minmin/Documents/minservice/server/core/server.go:49	accept tcp [::]:8888: use of closed network connection
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.153	[31merror[0m	/Users/minmin/Documents/minservice/minerpserver/core/server.go:49	net.Listen error: listen tcp :8888: bind: address already in use

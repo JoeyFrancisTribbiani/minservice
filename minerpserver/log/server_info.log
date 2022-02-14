@@ -34,3 +34,15 @@
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/11 - 16:50:23.628	[34minfo[0m	/Users/minmin/Documents/minservice/server/initialize/router.go:38	register swagger handler
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/11 - 16:50:23.629	[34minfo[0m	/Users/minmin/Documents/minservice/server/initialize/router.go:83	router register success
 [github.com/flipped-aurora/gin-vue-admin/server]2022/02/11 - 16:50:23.629	[34minfo[0m	/Users/minmin/Documents/minservice/server/core/server.go:38	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.143	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/gorm.go:61	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.147	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:32	use middleware logger
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.147	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:36	use middleware cors
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.148	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:38	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.152	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:35:40.152	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/core/server.go:38	server run success on 	{"address": ":8888"}
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.445	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/gorm.go:61	register table success
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.451	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:32	use middleware logger
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.451	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:36	use middleware cors
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.451	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:38	register swagger handler
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.465	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/initialize/router.go:84	router register success
+[github.com/flipped-aurora/gin-vue-admin/server]2022/02/14 - 16:43:08.466	[34minfo[0m	/Users/minmin/Documents/minservice/minerpserver/core/server.go:38	server run success on 	{"address": ":8888"}

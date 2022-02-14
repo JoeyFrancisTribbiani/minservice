@@ -14,14 +14,14 @@ import (
 	"minamazon/common"
 	"net/http"
 	"net/http/httputil"
+	"strconv"
 
 	"github.com/JoeyFrancisTribbiani/minerpserver/model/autocode"
 	"github.com/JoeyFrancisTribbiani/selling-partner-api-sdk/listings"
 	"github.com/pkg/errors"
-	"github.com/thedevsaddam/gojsonq/v2"
 )
 
-func GetListings() {
+func GetListings(model *autocode.ErpListingDetail) *autocode.ErpListingDetail {
 	listingClient, err := listings.NewClientWithResponses(common.Endpoint,
 		listings.WithRequestBefore(common.FnRequestBefore),
 		listings.WithResponseAfter(SaveListing),
@@ -45,17 +45,27 @@ func GetListings() {
 	var sellerId = "ASVGM7S7XZ793"
 	var includedData = []string{"attributes", "issues", "offers", "fulfillmentAvailability"}
 
-	resp, err := listingClient.GetListingsItem(ctx, sellerId, sku, &listings.GetListingsItemParams{
+	resp, err := listingClient.GetListingsItemWithResponse(ctx, sellerId, sku, &listings.GetListingsItemParams{
 		MarketplaceIds: marketplaceIds,
 		IncludedData:   &includedData,
 	})
 
 	if err != nil {
-		// panic(err)
 		fmt.Println(err, "err is not nil")
 	}
-	fmt.Println(resp)
 
+	jsonmodel := resp.JSON200
+	model.Asin = jsonmodel.Attributes.AdditionalProperties[""].(string)
+	model.Currency = (*jsonmodel.Offers)[0].Price.CurrencyCode
+	price, err := strconv.ParseFloat(string((*jsonmodel.Offers)[0].Price.Amount), 64)
+	if err != nil {
+		fmt.Println(err, "err is not nil")
+	}
+	model.ListingPrice = &price
+	model.Quantity = (*jsonmodel.FulfillmentAvailability)[0].Quantity
+	model.FulfillmentChannel = (*jsonmodel.FulfillmentAvailability)[0].FulfillmentChannelCode
+
+	return model
 }
 
 func SaveListing(ctx context.Context, rsp *http.Response) error {
@@ -65,16 +75,5 @@ func SaveListing(ctx context.Context, rsp *http.Response) error {
 	}
 	log.Printf("DumpResponse = %s", dump)
 
-	var model = &autocode.ErpListingDetail{}
-	fmt.Print(model)
-
-	gq := gojsonq.New().FromString(string(dump))
-	district := gq.Find("user.address.district")
-	fmt.Println(district)
-
-	gq.Reset()
-
-	hobby := gq.Find("user.hobbies.[0]")
-	fmt.Println(hobby)
 	return nil
 }
