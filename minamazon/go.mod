@@ -10,7 +10,7 @@ require (
 )
 
 require (
-	github.com/JoeyFrancisTribbiani/server v0.0.0
+	github.com/JoeyFrancisTribbiani/minerpserver v0.0.0
 	github.com/aws/aws-sdk-go v1.42.27 // indirect
 	github.com/jmespath/go-jmespath v0.4.0 // indirect
 	gopkg.me/selling-partner-api-sdk v0.0.0-20211119104035-0beaae30baa5 // indirect
@@ -46,4 +46,4 @@ require (
 	gorm.io/gorm v1.20.11 // indirect
 )
 
-replace github.com/JoeyFrancisTribbiani/server => /Users/minmin/Documents/minservice/server
+replace github.com/JoeyFrancisTribbiani/minerpserver => /Users/minmin/Documents/minservice/server

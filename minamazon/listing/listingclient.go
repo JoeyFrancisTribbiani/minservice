@@ -10,21 +10,18 @@ package listing
 import (
 	"context"
 	"fmt"
-	"log"
 	"minamazon/common"
-	"net/http"
-	"net/http/httputil"
 	"strconv"
 
+	"github.com/JoeyFrancisTribbiani/minerpserver/model/autocode"
+	service "github.com/JoeyFrancisTribbiani/minerpserver/service/autocode"
 	"github.com/JoeyFrancisTribbiani/selling-partner-api-sdk/listings"
-	"github.com/JoeyFrancisTribbiani/server/model/autocode"
-	"github.com/pkg/errors"
 )
 
 func GetListings(model *autocode.ErpListingDetail) *autocode.ErpListingDetail {
 	listingClient, err := listings.NewClientWithResponses(common.Endpoint,
 		listings.WithRequestBefore(common.FnRequestBefore),
-		listings.WithResponseAfter(SaveListing),
+		listings.WithResponseAfter(common.FnResponseAfter),
 	)
 
 	if err != nil {
@@ -68,12 +65,10 @@ func GetListings(model *autocode.ErpListingDetail) *autocode.ErpListingDetail {
 	return model
 }
 
-func SaveListing(ctx context.Context, rsp *http.Response) error {
-	dump, err := httputil.DumpResponse(rsp, true)
+func SaveListing(listing *autocode.ErpListingDetail) {
+	service := &service.ErpListingDetailService{}
+	err := service.CreateErpListingDetail(*listing)
 	if err != nil {
-		return errors.Wrap(err, "DumpResponse Error")
+		panic("error when create listing")
 	}
-	log.Printf("DumpResponse = %s", dump)
-
-	return nil
 }
