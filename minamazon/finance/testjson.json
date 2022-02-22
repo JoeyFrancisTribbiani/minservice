@@ -1,0 +1,19 @@
+{
+    "payload": {
+        "FinancialEventGroupList": [
+            {
+                "FinancialEventGroupId": "1ukKtjtwE63Rh55bGpFH4xjxIzMgSryYe9qghhETZYE",
+                "ProcessingStatus": "Open",
+                "OriginalTotal": {
+                    "CurrencyCode": "USD",
+                    "CurrencyAmount": 0.0
+                },
+                "BeginningBalance": {
+                    "CurrencyCode": "USD",
+                    "CurrencyAmount": -39.99
+                },
+                "FinancialEventGroupStart": "2021-07-28T13:49:14Z"
+            }
+        ]
+    }
+}

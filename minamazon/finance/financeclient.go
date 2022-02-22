@@ -19,7 +19,7 @@ import (
 	"github.com/JoeyFrancisTribbiani/selling-partner-api-sdk/finances"
 )
 
-func GetFinanceEvents(model *autocode.ErpListingDetail) *autocode.ErpListingDetail {
+func GetFinanceEvents() {
 
 	finance, err := finances.NewClientWithResponses(common.Endpoint,
 		finances.WithRequestBefore(common.FnRequestBefore),
@@ -34,8 +34,9 @@ func GetFinanceEvents(model *autocode.ErpListingDetail) *autocode.ErpListingDeta
 	// // var status []string = []string{"DONE"}
 	// var marketplaceIds []string = []string{"ATVPDKIKX0DER"}
 	// // m, _ := time.ParseDuration("-1M")
-	var since = time.Now().AddDate(0, -12, -21).UTC()
-	var until = time.Now().AddDate(0, -10, 0).UTC()
+	// 不得晚于当前时间前两分钟
+	var since = time.Now().AddDate(0, -3, 0).UTC()
+	var until = time.Now().Add(-time.Minute * 5).UTC()
 
 	// var nextToken = ""
 	// var sku = "6D-5N0Z-CDTM"
@@ -49,6 +50,7 @@ func GetFinanceEvents(model *autocode.ErpListingDetail) *autocode.ErpListingDeta
 
 	if err != nil {
 		fmt.Println(err, "err is not nil")
+		fmt.Println(resp.Body)
 	}
 
 	jsonmodel := resp.JSON200
@@ -57,7 +59,6 @@ func GetFinanceEvents(model *autocode.ErpListingDetail) *autocode.ErpListingDeta
 		fmt.Print(group)
 	}
 
-	return model
 }
 
 func SaveListing(listing *autocode.ErpListingDetail) {
